@@ -1,0 +1,6 @@
+[submodule "vo-uav"]
+	path = vo-uav
+	url = https://github.com/umunevich/vo-uav.git
+[submodule "vo-frontend"]
+	path = vo-frontend
+	url = https://github.com/umunevich/vo-frontend.git
