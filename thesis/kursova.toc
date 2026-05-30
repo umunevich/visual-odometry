@@ -1,0 +1,32 @@
+\xpg@aux {}{ukrainian}
+\contentsline {chapter}{Реферат}{1}{chapter*.1}%
+\contentsline {chapter}{Зміст}{2}{chapter*.2}%
+\contentsline {chapter}{Скорочення та умовні познаки}{5}{chapter*.4}%
+\contentsline {chapter}{Вступ}{6}{chapter*.5}%
+\contentsline {chapter}{\numberline {1}Теоретичні основи монокулярної візуальної одометрії}{8}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Пін-hole модель камери}{8}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Калібрування камери}{8}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Детекція та відстеження ознак}{9}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Епіполярна геометрія та суттєва матриця}{9}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Неоднозначність масштабу в монокулярній VO}{9}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Огляд підходів ORB-SLAM та PTAM}{10}{section.1.6}%
+\contentsline {chapter}{\numberline {2}Проєктування системи}{11}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Загальна архітектура}{11}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Режими роботи}{11}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Протокол обміну даними}{11}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Зберігання конфігурації}{12}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Стек технологій}{12}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Реалізація програмного комплексу}{13}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Модуль візуальної одометрії}{13}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Попередня обробка}{13}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Конвеєр обробки кадру}{13}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Стани трекінгу}{14}{subsection.3.1.3}%
+\contentsline {section}{\numberline {3.2}Модуль калібрування}{14}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Frontend та розгортання}{14}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Експериментальні дослідження}{15}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Набір даних EuRoC MAV}{15}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Результати калібрування}{15}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Оцінювання VO}{16}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Обмеження експериментів}{16}{section.4.4}%
+\contentsline {chapter}{Висновки}{17}{chapter*.9}%
+\contentsline {chapter}{Перелік джерел посилання}{18}{chapter*.10}%

@@ -1,0 +1,492 @@
+% !TEX program = xelatex
+% Компіляція: xelatex kursova.tex && xelatex kursova.tex
+\documentclass[14pt,a4paper,openany]{extreport}
+
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\newfontfamily\cyrillicfonttt{Courier New}[Script=Cyrillic]
+\setmonofont{Courier New}[Script=Cyrillic]
+
+\usepackage{polyglossia}
+\setdefaultlanguage{ukrainian}
+
+\usepackage{geometry}
+\geometry{
+  a4paper,
+  left=25mm,
+  right=10mm,
+  top=20mm,
+  bottom=20mm,
+}
+
+\usepackage{setspace}
+\onehalfspacing
+\setlength{\parindent}{1.27cm}
+
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{indentfirst}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{lastpage}
+\usepackage{totcount}
+\setlength{\headheight}{17pt}
+
+\regtotcounter{figure}
+\regtotcounter{table}
+
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+
+% --- Нумерація сторінок (верхній правий кут) ---
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{\fancyhf{}\fancyhead[R]{\thepage}}
+
+% --- Заголовки розділів (п. 3.2, 3.4 методички) ---
+\renewcommand{\chaptername}{}
+\renewcommand{\thechapter}{\arabic{chapter}}
+
+\titleformat{\chapter}[display]
+  {\normalfont\bfseries\centering}
+  {\thechapter}{1em}{\MakeUppercase}
+\titlespacing*{\chapter}{0pt}{0pt}{2\baselineskip}
+
+\titleformat{\section}
+  {\normalfont\bfseries}
+  {\thesection\ } % пробіл після номера, без крапки
+  {0pt}
+  {}
+
+\titleformat{\subsection}
+  {\normalfont\bfseries}
+  {\thesubsection\ }
+  {0pt}
+  {}
+
+\titlespacing*{\section}{\parindent}{2\baselineskip}{2\baselineskip}
+\titlespacing*{\subsection}{\parindent}{2\baselineskip}{2\baselineskip}
+
+% --- Підписи до рисунків і таблиць (п. 3.7, 3.8) ---
+\DeclareCaptionLabelFormat{ukrainian}{#1~#2}
+\captionsetup{
+  labelformat=ukrainian,
+  labelsep=endash,
+  font=normalsize,
+  skip=0.5em,
+}
+\captionsetup[table]{position=top, justification=justified}
+
+% --- Структурна частина (РЕФЕРАТ, ВСТУП, …) ---
+\newcommand{\structpart}[1]{%
+  \clearpage
+  \chapter*{\bfseries\MakeUppercase{#1}}
+  \addcontentsline{toc}{chapter}{#1}%
+}
+
+% --- Заголовок абзацу у вступі (додаток Г) ---
+\newcommand{\introheading}[1]{\par\vspace{0.5\baselineskip}\noindent\textbf{#1}}
+
+\lstset{
+  basicstyle=\small\ttfamily,
+  breaklines=true,
+  frame=single,
+  numbers=left,
+  numberstyle=\tiny,
+  tabsize=2,
+}
+
+% ========== ДАНІ ВИКОНАВЦЯ (замініть на свої) ==========
+\newcommand{\WorkTitle}{%
+  МОНОКУЛЯРНА ВІЗУАЛЬНА ОДОМЕТРІЯ \\
+  В РЕАЛЬНОМ ЧАСІ ДЛЯ БПЛА}
+\newcommand{\StudentCourse}{3-го}
+\newcommand{\StudentGender}{виконала}
+\newcommand{\StudentGenderShort}{студентка}
+\newcommand{\StudentGenderShortUpper}{Студентка}
+\newcommand{\StudentName}{Уточкіна Яна Максимівна}
+\newcommand{\StudentProgram}{ОПП «Інформатика»}
+\newcommand{\SupervisorTitle}{%
+  завідувач кафедри теоретичної кібернетики\\
+  доктор фізико-математичних наук}
+\newcommand{\SupervisorName}{Терещенко Василь Миколайович}
+\newcommand{\Year}{2026}
+
+\begin{document}
+
+% =============================================================================
+% Титульний аркуш (додаток А — зразок курсової роботи)
+% =============================================================================
+\begin{titlepage}
+  \thispagestyle{empty}
+  \begin{center}
+    \textbf{КИЇВСЬКИЙ НАЦІОНАЛЬНИЙ УНІВЕРСИТЕТ}\\
+    \textbf{ІМЕНІ ТАРАСА ШЕВЧЕНКА}\\[0.5em]
+    Факультет комп'ютерних наук та кібернетики\\
+    Кафедра математичної інформатики\\[2.5em]
+
+    Курсова робота\\
+    за спеціальністю 122 Комп'ютерні науки\\
+    на тему:\\
+    {\bfseries\WorkTitle}\\[2.5em]
+  \end{center}
+
+  \noindent
+  \begin{tabular}{@{}ll}
+    \StudentGender\ \StudentGenderShort\ \StudentCourse\ курсу & \\
+    \StudentProgram \\[-0.5em]
+    \StudentName & \hspace{5cm} \begin{tabular}{c} \underline{\hspace{3cm}} \\ \small(підпис) \end{tabular}
+  \end{tabular}
+  \\[2.5em]
+
+  \noindent
+  Науковий керівник:\\
+  \begin{tabular}{@{}ll}
+    \SupervisorTitle \\[-0.5em]
+    \SupervisorName & \hspace{2cm} \begin{tabular}{c} \underline{\hspace{3cm}} \\ \small(підпис) \end{tabular}
+  \end{tabular}
+  \\[2.5em]
+
+  \noindent
+  Засвідчую, що в цій роботі\\
+  немає запозичень з праць інших авторів\\
+  без відповідних посилань.\\[0.5em]
+  \StudentGenderShortUpper\hfill\underline{\hspace{3cm}}\\
+  \hfill(підпис)\\[3em]
+
+  \begin{center}
+    КИЇВ~\Year
+  \end{center}
+\end{titlepage}
+
+% =============================================================================
+% РЕФЕРАТ (додаток Б)
+% =============================================================================
+\structpart{Реферат}
+
+\noindent
+Обсяг роботи \pageref{LastPage}~сторінок,
+\total{figure}~ілюстрацій,
+\total{table}~таблиці,
+9~джерел посилань.
+
+\smallskip\noindent
+\textbf{ВІЗУАЛЬНА ОДОМЕТРІЯ, КАЛІБРУВАННЯ КАМЕРИ, МОНОКУЛЯРНА КАМЕРА, ОПТИЧНИЙ ПОТІК, ВЕБ-ЗАСТОСУНОК, КОМП'ЮТЕРНИЙ ЗІР.}
+
+\smallskip\noindent
+Об'єктом роботи є процес оцінювання траєкторії руху монокулярної камери за послідовністю зображень у режимі реального часу або з відеофайлу. Предметом роботи є методи детекції та відстеження ознак, відновлення відносної пози камери та програмна реалізація веб-системи візуальної одометрії.
+
+Метою роботи є розробка та дослідження програмного комплексу монокулярної візуальної одометрії з веб-інтерфейсом для візуалізації тривимірної траєкторії.
+
+Методи розроблення: аналіз літератури з візуальної одометрії, проєктування клієнт--серверної архітектури, реалізація алгоритмів комп'ютерного зору (OpenCV), компонентна веб-розробка (Angular), експериментальна перевірка на наборах даних EuRoC MAV. Інструменти: Python, FastAPI, OpenCV, Angular, Plotly.js, Docker.
+
+Результати роботи: спроєктовано та реалізовано веб-систему з WebSocket-транспортом; розроблено модуль VO на базі Shi--Tomasi, Lucas--Kanade та суттєвої матриці з RANSAC; реалізовано калібрування камери за шаховою дошкою; отримано профіль камери з reprojection error близько 1{,}21~px на даних EuRoC.
+
+Система може застосовуватися для навчальної демонстрації принципів візуальної одометрії, прототипування алгоритмів локалізації БПЛА та попередньої оцінки траєкторії за відео з бортової камери.
+
+% =============================================================================
+% ЗМІСТ
+% =============================================================================
+\structpart{Зміст}
+\tableofcontents
+
+% =============================================================================
+% СКОРОЧЕННЯ ТА УМОВНІ ПОЗНАКИ (додаток В)
+% =============================================================================
+\structpart{Скорочення та умовні познаки}
+
+\noindent
+API --- програмний інтерфейс застосунку (Application Programming Interface);\\
+ATE --- абсолютна похибка траєкторії (Absolute Trajectory Error);\\
+БПЛА --- безпілотний літальний апарат;\\
+GNSS --- глобальна навігаційна супутникова система;\\
+IMU --- інерціальний вимірювальний блок;\\
+LK --- метод Lucas--Kanade;\\
+RPE --- відносна похибка пози (Relative Pose Error);\\
+SLAM --- одночасна локалізація та побудова карти (Simultaneous Localization and Mapping);\\
+VO --- візуальна одометрія (Visual Odometry);\\
+YAML --- мова серіалізації даних YAML Ain't Markup Language;\\
+$E$ --- суттєва матриця;\\
+$K$ --- матриця внутрішніх параметрів камери.
+
+% =============================================================================
+% ВСТУП (додаток Г)
+% =============================================================================
+\structpart{Вступ}
+
+\introheading{Оцінка сучасного стану об'єкта розроблення.}
+Визначення положення та орієнтації мобільного робота або безпілотного літального апарата є фундаментальною задачею автономної навігації. У середовищах, де сигнал GNSS недоступний або ненадійний, основним джерелом інформації про рух часто стає бортова відеокамера. Візуальна одометрія дозволяє оцінювати відносний рух камери між послідовними кадрами шляхом інтегрування зміщень та обертань у траєкторію [5]. Монокулярна VO використовує один відеопотік, що спрощує апаратну частину, але створює труднощі через неоднозначність масштабу та накопичення похибки. Сучасні SLAM-системи, зокрема ORB-SLAM [2] та PTAM [3], демонструють високу точність, однак їх повна реалізація є складною для навчальних та прототипних задач.
+
+\introheading{Актуальність роботи та підстави для її виконання.}
+Розробка веб-орієнтованої системи, яка поєднує алгоритми комп'ютерного зору на сервері та інтерактивну візуалізацію траєкторії в браузері, актуальна для навчального процесу, швидкого прототипування та попередньої оцінки руху БПЛА за відео. Наявність відкритих наборів даних, зокрема EuRoC MAV [1], дозволяє верифікувати калібрування камери та якість VO.
+
+\introheading{Мета й завдання роботи.}
+Метою курсової роботи є розробка та дослідження програмного комплексу монокулярної візуальної одометрії з веб-інтерфейсом, що працює в режимі реального часу або з попередньо записаного відео. Для досягнення мети поставлено такі завдання:
+\begin{itemize}[leftmargin=*, itemsep=0pt]
+  \item проаналізувати теоретичні основи монокулярної VO та калібрування камери;
+  \item спроєктувати клієнт--серверну архітектуру системи;
+  \item реалізувати модуль оцінювання руху на основі оптичного потоку та епіполярної геометрії;
+  \item реалізувати калібрування камери за зображеннями шахової дошки;
+  \item забезпечити візуалізацію тривимірної траєкторії та керування профілями камери;
+  \item провести експериментальну перевірку на наборах даних EuRoC MAV.
+\end{itemize}
+
+\introheading{Об'єкт, методи й засоби розроблення.}
+Об'єктом дослідження є процес оцінювання траєкторії руху монокулярної камери за послідовністю зображень. Предметом --- методи детекції ознак, відстеження, відновлення пози та програмна реалізація веб-системи VO. У роботі застосовано методи аналітичної геометрії, комп'ютерного зору (OpenCV), проєктування клієнт--серверних систем, компонентний підхід у веб-розробці (Angular), а також експериментальну верифікацію на еталонних наборах даних.
+
+\introheading{Можливі сфери застосування.}
+Створена система може використовуватися для демонстрації принципів VO в навчальному процесі, швидкого прототипування алгоритмів локалізації, попередньої оцінки траєкторії БПЛА та збереження параметрів калібрування камери у профілях для подальших сеансів VO.
+
+\introheading{Структура роботи.}
+Робота складається з вступу, чотирьох розділів, висновків, переліку джерел посилання та додатків. У розділі~1 викладено теоретичні основи; у розділі~2 --- проєктування системи; у розділі~3 --- реалізацію; у розділі~4 --- експериментальні дослідження.
+
+% =============================================================================
+% РОЗДІЛ 1
+% =============================================================================
+\chapter{Теоретичні основи монокулярної візуальної одометрії}
+
+\section{Пін-hole модель камери}
+
+Камеру часто апроксимують центральною перспективною (pin-hole) моделлю. Точка світового простору $\mathbf{P} = (X, Y, Z)^\mathsf{T}$ проєктується на зображення через матрицю внутрішніх параметрів $K$:
+\begin{equation}
+  \lambda
+  \begin{bmatrix} u \\ v \\ 1 \end{bmatrix}
+  =
+  K
+  \begin{bmatrix} X \\ Y \\ Z \end{bmatrix},
+  \qquad
+  K =
+  \begin{bmatrix}
+    f_u & 0   & c_u \\
+    0   & f_v & c_v \\
+    0   & 0   & 1
+  \end{bmatrix},
+  \label{eq:K}
+\end{equation}
+де $f_u$, $f_v$ --- фокусні відстані в пікселях; $c_u$, $c_v$ --- координати головного пункту; $\lambda$ --- масштабний множник глибини.
+
+Для точної геометрії враховують дисторсію об'єктива, яку компенсують функцією undistort у OpenCV [4].
+
+\section{Калібрування камери}
+
+Калібрування --- визначення $K$ та коефіцієнтів дисторсії за зображеннями відомого просторового шаблону. Найпоширеніший підхід --- шахова дошка (метод Zhang, OpenCV calibrateCamera):
+\begin{enumerate}[leftmargin=*]
+  \item для кожного кадра знаходять внутрішні кути сітки;
+  \item уточнюють їх субпіксельно;
+  \item мінімізують reprojection error --- RMS-відстань між спостереженими та проєктованими кутами.
+\end{enumerate}
+
+Якість калібрування оцінюють за reprojection error: значення менше 0{,}5--1{,}0~px вважають прийнятними для VO.
+
+\section{Детекція та відстеження ознак}
+
+У розробленій системі застосовано:
+\begin{itemize}[leftmargin=*]
+  \item Shi--Tomasi (goodFeaturesToTrack) для вибору сильних кутів;
+  \item Lucas--Kanade --- пірамідальний оптичний потік calcOpticalFlowPyrLK;
+  \item forward--backward consistency --- відхилення треку, якщо зворотний потік не повертає точку в початкове положення.
+\end{itemize}
+
+\section{Епіполярна геометрія та суттєва матриця}
+
+Для двох кадрів з відомою калібровкою $K$ відносний рух описується суттєвою матрицею $E$ [6]:
+\begin{equation}
+  E = [\mathbf{t}]_\times R,
+  \label{eq:essential}
+\end{equation}
+де $R$ --- відносне обертання, $\mathbf{t}$ --- напрямок переносу (одиниця довжини), $[\mathbf{t}]_\times$ --- кососиметрична матриця.
+
+Матрицю $E$ оцінюють методом RANSAC (findEssentialMat), після чого recoverPose відновлює $R$ та $\mathbf{t}$ з перевіркою cheirality.
+
+\section{Неоднозначність масштабу в монокулярній VO}
+
+На відміну від стерео- або RGB-D-систем, одна камера не спостерігає абсолютну глибину без додаткових припущень. Вектор переносу $\mathbf{t}$ відновлюється лише з точністю до множника [5]. У даній роботі застосовано спрощений підхід: нормалізація кроку переносу та обмеження відносного масштабу між кадрами.
+
+\section{Огляд підходів ORB-SLAM та PTAM}
+
+Сучасні SLAM-системи (ORB-SLAM [2], PTAM [3]) поєднують надійне відстеження з дескрипторами, ключові кадри, локальну bundle adjustment та loop closure. Розроблена система реалізує полегшений VO-конвеєр, орієнтований на real-time обробку через WebSocket, без глобальної карти та замикання контурів.
+
+% =============================================================================
+% РОЗДІЛ 2
+% =============================================================================
+\chapter{Проєктування системи}
+
+\section{Загальна архітектура}
+
+Система побудована за архітектурою клієнт--сервер (рис.~\ref{fig:arch}). Обчислювально складні операції комп'ютерного зору виконуються на Python-сервері; Angular-клієнт відповідає за захоплення відео, налаштування та візуалізацію.
+
+\begin{figure}[htbp]
+  \centering
+  \fbox{\parbox{0.92\textwidth}{
+    \small
+    \textbf{Клієнт (Angular):} камера / відеофайл $\rightarrow$ JPEG (Base64) $\rightarrow$ WebSocket\\
+    $\rightarrow$ Plotly 3D-графік траєкторії\\[0.5em]
+    \textbf{Сервер (FastAPI):} декодування кадру $\rightarrow$ Visual Odometry $\rightarrow$ JSON $\{x,y,z,\text{confidence},\text{tracking}\}$\\[0.5em]
+    \textbf{Профілі камери (YAML):} intrinsics, distortion, параметри VO\\
+    \textbf{REST API:} калібрування за шаховою дошкою, CRUD профілів
+  }}
+  \caption{Логічна архітектура системи}
+  \label{fig:arch}
+\end{figure}
+
+\section{Режими роботи}
+
+Підтримуються два режими: Stream --- захоплення з веб-камери в реальному часі; From file --- обробка завантаженого відеофайлу (наприклад, конвертованої послідовності EuRoC). Перед запуском VO користувач обирає профіль калібрування камери.
+
+\section{Протокол обміну даними}
+
+З'єднання встановлюється через WebSocket:
+\texttt{ws://<host>:8000/ws/vo-stream?config\_id=<profile\_id>}. Цикл запит--відповідь: клієнт надсилає кадр (Base64 JPEG); сервер обробляє кадр у окремому потоці (asyncio.to\_thread); сервер повертає координати та стан трекінгу; клієнт додає точку на 3D-графік і надсилає наступний кадр.
+
+\section{Зберігання конфігурації}
+
+Профілі камери зберігаються у форматі YAML у каталозі \texttt{vo-uav/storage/configs/}. Профіль містить внутрішні параметри $f_u$, $f_v$, $c_u$, $c_v$, коефіцієнти дисторсії, метадані калібрування та параметри VO.
+
+\section{Стек технологій}
+
+Стек технологій наведено в табл.~\ref{tab:stack}.
+
+\begin{table}[htbp]
+  \caption{Технологічний стек системи}
+  \label{tab:stack}
+  \centering
+  \begin{tabular}{@{}p{3.2cm}p{9.5cm}@{}}
+    \toprule
+    Шар & Технології \\
+    \midrule
+    Backend & Python 3.11+, FastAPI, OpenCV, NumPy, PyYAML \\
+    Frontend & Angular 21, TypeScript, Angular Material, Plotly.js \\
+    Транспорт & WebSocket, REST (калібрування, профілі) \\
+    Інфраструктура & Docker, Docker Compose \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+% =============================================================================
+% РОЗДІЛ 3
+% =============================================================================
+\chapter{Реалізація програмного комплексу}
+
+\section{Модуль візуальної одометрії}
+
+Клас VisualOdometry (\texttt{vo-uav/src/vo.py}) реалізує інкрементальний VO-конвеєр. Система координат OpenCV: $X$ --- вправо, $Y$ --- вниз, $Z$ --- углиб сцени.
+
+\subsection{Попередня обробка}
+
+Виконується масштабування $K$ до фактичної роздільності кадру (якщо вона відрізняється від калібрувальної) та опційна undistortion за коефіцієнтами з профілю.
+
+\subsection{Конвеєр обробки кадру}
+
+Для кожного кадру $I_t$:
+\begin{enumerate}[leftmargin=*]
+  \item відстеження ознак між $I_{t-1}$ та $I_t$ (LK + forward--backward);
+  \item оцінка відносної пози: основний шлях --- $E$ + RANSAC + recoverPose; резервний --- estimateAffinePartial2D для плоских рухів;
+  \item оцінка масштабу кроку (triangulation depth ratio або median flow);
+  \item інтеграція пози; поповнення ознак; періодичне оновлення ключового кадру;
+  \item згладжування траєкторії (EMA + відсіювання стрибків).
+\end{enumerate}
+
+\subsection{Стани трекінгу}
+
+API повертає поле tracking зі значеннями initializing, ok, degraded, lost для діагностики якості оцінки в інтерфейсі користувача.
+
+\section{Модуль калібрування}
+
+Файл \texttt{camera\_calibration.py} реалізує побудову 3D-шаблону кутів шахової дошки, детекцію з findChessboardCornersSB та класичним fallback, автоматичний підбір розміру сітки (зокрема 6$\times$7 для EuRoC cam\_checkerboard), виклик calibrateCamera та збереження результату. REST-ендпоінт: POST /api/configs/calibrate.
+
+\section{Frontend та розгортання}
+
+Angular-додаток містить вкладки Stream / From file, елементи керування профілем камери, робочі простори VO з Plotly scatter3d та сервіс WebSocket з watchdog. Розгортання здійснюється через docker-compose.yml (backend --- порт 8000, frontend --- порт 4200).
+
+% =============================================================================
+% РОЗДІЛ 4
+% =============================================================================
+\chapter{Експериментальні дослідження}
+
+\section{Набір даних EuRoC MAV}
+
+Для тестування використано набір EuRoC MAV Dataset (ETH Zurich) [1] --- стандартний бенчмарк для візуально-інерційної одометрії та SLAM. Послідовність cam\_checkerboard містить кадри камери cam0 (752$\times$480~px, 20~Гц) з видимою шаховою дошкою. Для калібрування потрібна сітка 6$\times$7 внутрішніх кутів. З 2376~кадрів дошку успішно детектовано на 1740.
+
+\section{Результати калібрування}
+
+Параметри профілю dataset.yaml, отриманого за 11~зображеннями з EuRoC, наведено в табл.~\ref{tab:calib}.
+
+\begin{table}[htbp]
+  \caption{Параметри калібрування (профіль Dataset)}
+  \label{tab:calib}
+  \centering
+  \begin{tabular}{@{}lr@{}}
+    \toprule
+    Параметр & Значення \\
+    \midrule
+    $f_u$ & 397,88~px \\
+    $f_v$ & 394,66~px \\
+    $c_u$ & 360,80~px \\
+    $c_v$ & 271,66~px \\
+    Reprojection error & 1,21~px \\
+    Роздільність & 752 $\times$ 480~px \\
+    Внутрішні кути & 6 $\times$ 7 \\
+    Розмір клітини & 38~mm \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Reprojection error близько 1,2~px --- прийнятний рівень; для підвищення точності VO рекомендується більше різноманітних ракурсів.
+
+\section{Оцінювання VO}
+
+Якісна оцінка включає аналіз форми траєкторії на Plotly, полів confidence та tracking, поведінку при нерухомій камері та порівняння профілів EuRoC default і власної калібровки.
+
+Для кількісної оцінки на польових послідовностях EuRoC (наприклад, MH\_01\_easy) доступна ground truth. Рекомендований алгоритм: експорт траєкторії у формат TUM; Sim(3)-вирівнювання з ground truth; обчислення ATE та RPE за допомогою бібліотеки evo [7]. У поточній версії репозиторію автоматичний експорт траєкторії не реалізовано.
+
+\section{Обмеження експериментів}
+
+Монокулярна VO без loop closure накопичує drift; масштаб траєкторії умовний; webcam-сценарії часто активують affine-fallback; затримка мережі WebSocket впливає на частоту кадрів у режимі Stream.
+
+% =============================================================================
+% ВИСНОВКИ
+% =============================================================================
+\structpart{Висновки}
+
+У курсовій роботі спроєктовано та реалізовано веб-систему монокулярної візуальної одометрії з клієнт--серверною архітектурою, WebSocket-транспортом і 3D-візуалізацією траєкторії.
+
+Розроблено VO-модуль на базі Shi--Tomasi, Lucas--Kanade, суттєвої матриці з RANSAC, резервного affine-методу та post-processing згладжування. Реалізовано калібрування камери за шаховою дошкою з автопідбором розміру сітки та збереженням профілів YAML.
+
+На даних EuRoC cam\_checkerboard отримано профіль з reprojection error близько 1,21~px; підтверджено коректність детекції дошки 6$\times$7.
+
+Система придатна для навчальної демонстрації VO та прототипування. Перспективи розвитку: експорт траєкторії та порівняння з ground truth (evo), local bundle adjustment, ORB-дескриптори, fusion з IMU, loop closure.
+
+% =============================================================================
+% ПЕРЕЛІК ДЖЕРЕЛ ПОСИЛАННЯ (ДСТУ 8302:2015, додаток Д)
+% =============================================================================
+\structpart{Перелік джерел посилання}
+
+\begin{enumerate}[label=\arabic*., leftmargin=*, itemsep=0.35em]
+
+\item Burri M., Nikolic J., Gohl P. [та ін.]. The EuRoC micro aerial vehicle datasets. International Journal of Robotics Research. 2016.
+
+\item Mur-Artal R., Montiel J., Tardós J.~D. ORB-SLAM: a versatile and accurate monocular SLAM system. IEEE Transactions on Robotics. 2015.
+
+\item Klein G., Murray D. Parallel tracking and mapping for small AR workspaces. ISMAR. 2007.
+
+\item Camera calibration with OpenCV // OpenCV Documentation. URL: \url{https://docs.opencv.org/4.x/d4/d94/tutorial_camera_calibration.html} (дата звернення: 29.05.2026).
+
+\item Scaramuzza D., Fraundorfer F. Visual Odometry: Part I --- The First 30 Years and Fundamentals. IEEE Robotics \& Automation Magazine. 2011.
+
+\item Hartley R., Zisserman A. Multiple View Geometry in Computer Vision. Cambridge University Press, 2004. 655~с.
+
+\item evo: Python package for the evaluation of odometry and SLAM // GitHub. URL: \url{https://github.com/MichaelGrupp/evo} (дата звернення: 29.05.2026).
+
+\item FastAPI Documentation. URL: \url{https://fastapi.tiangolo.com/} (дата звернення: 29.05.2026).
+
+\item Angular Documentation. URL: \url{https://angular.dev/} (дата звернення: 29.05.2026).
+
+\end{enumerate}
+
+\end{document}
