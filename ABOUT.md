@@ -272,6 +272,64 @@ Always calibrate with the **same camera and resolution** used during VO. Using a
 
 ---
 
+## EuRoC MAV Dataset
+
+Development and testing of this project rely on the **[EuRoC MAV Dataset](https://www.research-collection.ethz.ch/entities/researchdata/bcaf173e-5dac-484b-bc37-faf97a594f1f)** — a widely used benchmark for visual-inertial odometry and SLAM, published by ETH Zurich (ASL / Robotics and Perception Group).
+
+**Full dataset (download):**  
+[https://www.research-collection.ethz.ch/entities/researchdata/bcaf173e-5dac-484b-bc37-faf97a594f1f](https://www.research-collection.ethz.ch/entities/researchdata/bcaf173e-5dac-484b-bc37-faf97a594f1f)
+
+### What the dataset contains
+
+The EuRoC MAV Dataset records flights of a micro aerial vehicle (MAV) equipped with:
+
+| Component | Description |
+|-----------|-------------|
+| **Stereo cameras** | Two global-shutter cameras (`cam0`, `cam1`), grayscale, typically **752×480** at **20 Hz** |
+| **IMU** | Inertial measurements (not used by this monocular VO pipeline) |
+| **Ground truth** | High-accuracy 6-DoF poses from motion capture (Vicon room) or laser tracker (machine hall) |
+
+Sequences are split into two environments:
+
+- **Machine Hall** — industrial hall with metal structures and rich texture  
+- **Vicon Room** — smaller room with Vicon motion-capture ground truth  
+
+Each sequence includes timestamped images, IMU data, and ground-truth trajectory files, making EuRoC a standard reference for comparing VO/SLAM accuracy.
+
+### How this project uses EuRoC
+
+1. **Default camera profile**  
+   The bundled profile `euroc_default` stores intrinsics for **Machine Hall camera 0** (`cam0`):
+
+   - \(f_u = 458.654\), \(f_v = 457.296\)  
+   - \(c_u = 367.215\), \(c_v = 248.375\)  
+   - Calibration resolution: **752×480**  
+
+   These values are applied when no user-specific calibration profile is selected. At runtime, intrinsics are scaled if the input video or stream uses a different resolution.
+
+2. **Offline testing (From file mode)**  
+   EuRoC image sequences can be converted to video and processed in the **From file** workspace:
+
+   ```bash
+   # Example: stitch a folder of EuRoC PNG frames into MP4
+   python scripts/make_video.py -i path/to/dataset_frames/ -o euroc_sequence.mp4
+   ```
+
+   Upload the resulting video in the frontend, select the EuRoC (or matching) camera profile, and run VO.
+
+3. **Validation reference**  
+   EuRoC ground-truth trajectories allow qualitative comparison of estimated paths (loop shape, turns, scale behavior). This project focuses on **real-time monocular VO** rather than full benchmark reporting against EuRoC metrics, but the dataset remains the primary reference for default intrinsics and test sequences.
+
+### Citation
+
+If you use EuRoC in academic work, cite the original dataset paper:
+
+> M. Burri *et al.*, “The EuRoC micro aerial vehicle datasets,” *International Journal of Robotics Research (IJRR)*, 2016.
+
+For the latest download links, documentation, and license terms, use the official ETH Research Collection page linked above.
+
+---
+
 ## Tech Stack
 
 | Layer | Technologies |
