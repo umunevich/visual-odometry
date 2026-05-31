@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.25)  30 MAY 2026 22:27
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.25)  31 MAY 2026 03:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -549,7 +549,7 @@ ounters
 )
 \c@figure@totc=\count341
 \c@table@totc=\count342
-Package hyperref Info: Option `colorlinks' set `true' on input line 43.
+Package hyperref Info: Option `colorlinks' set `true' on input line 44.
 
 Package fontspec Info: 
 (fontspec)             Font family 'TimesNewRoman(1)' created for font 'Times
@@ -573,26 +573,26 @@ Package fontspec Info:
 (./kursova.aux)
 \openout1 = `kursova.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
 
 Package fontspec Info: 
 (fontspec)             Adjusting the maths setup (use [no-math] to avoid
@@ -600,65 +600,65 @@ Package fontspec Info:
 
 \symlegacymaths=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 121.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 121.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 121.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 121.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 121.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 121.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 121.
-LaTeX Font Info:    Redeclaring math accent \check on input line 121.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 121.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 121.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 121.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 121.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 121.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 121.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 121.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 121.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 121.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 121.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 121.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 121.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 121.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 121.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 121.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 121.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 150.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 150.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 150.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 150.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 150.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 150.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 150.
+LaTeX Font Info:    Redeclaring math accent \check on input line 150.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 150.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 150.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 150.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 150.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 121.
+(Font)              `operators' in the math version `normal' on input line 150.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> TU/TimesNewRoman(0)/m/n on input line 1
-21.
+50.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 121.
+(Font)              `operators' in the math version `bold' on input line 150.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/m/n on input line 
-121.
+150.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/m/n on 
-input line 121.
+input line 150.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/cmr/m/it --> TU/TimesNewRoman(0)/m/it on input line
- 121.
+ 150.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/b/n on input line 
-121.
+150.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 121.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 150.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/CourierNew(1)/m/n on input line 121
+(Font)                  OT1/cmtt/m/n --> TU/CourierNew(1)/m/n on input line 150
 .
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/b/n on 
-input line 121.
+input line 150.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> TU/TimesNewRoman(0)/b/it on input lin
-e 121.
+e 150.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 121.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 150.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/CourierNew(1)/b/n on input line 121
+(Font)                  OT1/cmtt/m/n --> TU/CourierNew(1)/b/n on input line 150
 .
 
 *geometry* driver: auto-detecting
@@ -708,48 +708,49 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 Package color Info: Driver file: xetex.def on input line 149.
 
 (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/mathcolor.ltx))
-Package hyperref Info: Link coloring ON on input line 121.
+Package hyperref Info: Link coloring ON on input line 150.
 
 (./kursova.out) (./kursova.out)
 \@outlinefile=\write3
 \openout3 = `kursova.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 141
+LaTeX Font Info:    Trying to load font information for U+msa on input line 170
 .
 
 (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 141
+LaTeX Font Info:    Trying to load font information for U+msb on input line 170
 .
 
 (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 140--147
+Underfull \hbox (badness 10000) in paragraph at lines 169--176
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 148--155
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 156--162
+Underfull \hbox (badness 10000) in paragraph at lines 177--184
 
  []
 
 [1
 
 ]
-Overfull \hbox (9.44685pt too wide) in paragraph at lines 179--181
-\TU/TimesNewRoman(1)/b/n/14.4 КАМЕРА, ОПТИЧНИЙ ПОТІК, ВЕБ-ЗАСТОСУНОК, КОМП’ЮТЕР
-НИЙ ЗІР. 
+Overfull \hbox (9.08748pt too wide) in paragraph at lines 210--211
+[]\TU/TimesNewRoman(1)/b/n/14.4 ВІЗУАЛЬНА ОДОМЕТРІЯ, КАЛІБРУВАННЯ КАМЕРИ, МОНОК
+УЛЯР-
  []
 
 
-Overfull \hbox (11.25987pt too wide) in paragraph at lines 187--188
+Overfull \hbox (7.24608pt too wide) in paragraph at lines 210--211
+\TU/TimesNewRoman(1)/b/n/14.4 НА КАМЕРА, ОПТИЧНИЙ ПОТІК, ВЕБ-ЗАСТОСУНОК, КОМП’Ю
+ТЕРНИЙ
+ []
+
+
+Overfull \hbox (11.25987pt too wide) in paragraph at lines 217--218
 \TU/TimesNewRoman(1)/m/n/14.4 клієнт–серверної архітектури, реалізація алгоритм
 ів комп’ютерного зору (OpenCV),
  []
@@ -757,157 +758,170 @@ Overfull \hbox (11.25987pt too wide) in paragraph at lines 187--188
 [1
 
 
-] [2
-
-
-] (./kursova.toc [3
+] (./kursova.toc [2
 
 ])
 \tf@toc=\write4
 \openout4 = `kursova.toc'.
 
- [4] [5
+ [3] [4
 
 
-] [6
+]
+Overfull \hbox (3.29814pt too wide) in paragraph at lines 260--261
+\TU/TimesNewRoman(1)/m/n/14.4 навчального процесу, швидкого прототипування та п
+опередньої оцінки руху БПЛА
+ []
+
+[5
 
 
-] [7]
+] [6]
 Розділ 1.
+File: images/fig-01-pinhole.png Graphic file (type bmp)
+<images/fig-01-pinhole.png>
 
-Overfull \hbox (3.72157pt too wide) in paragraph at lines 274--275
+Overfull \hbox (3.72157pt too wide) in paragraph at lines 322--323
 []\TU/TimesNewRoman(1)/m/n/14.4 Для точної геометрії враховують дисторсію об’єк
 тива, яку компенсують фун-
  []
 
-[8
+[7
 
-]
-Overfull \hbox (39.36522pt too wide) in paragraph at lines 305--306
+] [8]
+File: images/fig-02-optical-flow.png Graphic file (type bmp)
+<images/fig-02-optical-flow.png>
+ [9]
+Overfull \hbox (39.36522pt too wide) in paragraph at lines 363--364
 []\TU/TimesNewRoman(1)/m/n/14.4 Матрицю $\OML/cmm/m/it/14.4 E$ \TU/TimesNewRoma
 n(1)/m/n/14.4 оцінюють методом RANSAC (findEssentialMat), після чого recoverPos
 e
  []
 
-[9] [10]
+[10]
 Розділ 2.
 
-Overfull \hbox (12.94388pt too wide) in paragraph at lines 322--323
+Overfull \hbox (12.94388pt too wide) in paragraph at lines 380--381
 \TU/TimesNewRoman(1)/m/n/14.4 складні операції комп’ютерного зору виконуються н
 а Python-сервері; Angular-клієнт
  []
 
+File: images/fig-03-architecture.png Graphic file (type bmp)
+<images/fig-03-architecture.png>
+[11
 
-Underfull \hbox (badness 10000) in paragraph at lines 333--333
-\TU/TimesNewRoman(1)/b/n/12 Сервер (FastAPI): \TU/TimesNewRoman(1)/m/n/12 декод
-ування кадру $\OMS/cmsy/m/n/12 !$ \TU/TimesNewRoman(1)/m/n/12 Visual Odometry $
-\OMS/cmsy/m/n/12 !$ \TU/TimesNewRoman(1)/m/n/12 JSON
- []
-
-
-Overfull \hbox (226.0762pt too wide) in paragraph at lines 344--346
+]
+Overfull \hbox (226.0762pt too wide) in paragraph at lines 395--397
 \TU/TimesNewRoman(1)/m/n/14.4 З’єднання встановлюється через WebSocket: \TU/Cou
 rierNew(0)/m/n/14.4 ws://<host>:8000/ws/vo-stream?config_id=<profile_id>\TU/Tim
 esNewRoman(1)/m/n/14.4 .
  []
 
-[11
 
-]
-Overfull \hbox (49.58246pt too wide) in paragraph at lines 349--350
+Overfull \hbox (49.58246pt too wide) in paragraph at lines 400--401
 \TU/TimesNewRoman(1)/m/n/14.4 Профілі камери зберігаються у форматі YAML у ката
 лозі \TU/CourierNew(0)/m/n/14.4 vo-uav/storage/configs/\TU/TimesNewRoman(1)/m/n
 /14.4 .
  []
 
 
-Underfull \hbox (badness 6047) in paragraph at lines 363--364
+Underfull \hbox (badness 6047) in paragraph at lines 414--415
 []\TU/TimesNewRoman(1)/m/n/14.4 Python 3.11+, FastAPI, OpenCV, NumPy,
  []
 
 
-Underfull \hbox (badness 3965) in paragraph at lines 364--365
+Underfull \hbox (badness 3965) in paragraph at lines 415--416
 []\TU/TimesNewRoman(1)/m/n/14.4 Angular 21, TypeScript, Angular Material,
  []
 
 
-Overfull \hbox (5.14577pt too wide) in paragraph at lines 366--366
+Overfull \hbox (5.14577pt too wide) in paragraph at lines 417--417
 []\TU/TimesNewRoman(1)/m/n/14.4 Інфраструктура| 
  []
 
 [12]
 Розділ 3.
 
-Overfull \hbox (19.07501pt too wide) in paragraph at lines 378--379
+Overfull \hbox (19.07501pt too wide) in paragraph at lines 429--430
 \TU/TimesNewRoman(1)/m/n/14.4 Клас VisualOdometry (\TU/CourierNew(0)/m/n/14.4 v
 o-uav/src/vo.py\TU/TimesNewRoman(1)/m/n/14.4 ) реалізує інкрементальний VO-конв
 еєр.
  []
 
+File: images/fig-04-vo-pipeline.png Graphic file (type bmp)
+<images/fig-04-vo-pipeline.png>
 [13
 
 ]
-Overfull \hbox (18.92526pt too wide) in paragraph at lines 401--402
+Overfull \hbox (18.92526pt too wide) in paragraph at lines 461--462
 \TU/TimesNewRoman(1)/m/n/14.4 calibrateCamera та збереження результату. REST-ен
 дпоінт: POST /api/configs/calibrate. 
  []
 
-[14]
+[14] [15]
 Розділ 4.
+File: images/fig-06-calibration.png Graphic file (type bmp)
+<images/fig-06-calibration.png>
 
-Overfull \hbox (10.40678pt too wide) in paragraph at lines 444--445
-\TU/TimesNewRoman(1)/m/n/14.4 Якісна оцінка включає аналіз форми траєкторії на 
-Plotly, полів confidence та tracking,
+Underfull \hbox (badness 10000) in paragraph at lines 512--512
+[]\TU/TimesNewRoman(1)/m/n/14.4 Рис. 4.1 – |Детекція внутрішніх кутів шахової д
+ошки 6×7 (EuRoC
  []
 
-[15
+
+Overfull \hbox (0.1904pt too wide) in paragraph at lines 518--519
+\TU/TimesNewRoman(1)/m/n/14.4 Якісна оцінка включає аналіз форми траєкторії на 
+Plotly (рис. [][]4.2[][]), полів confidence
+ []
+
+[16
 
 ]
-Overfull \hbox (48.23523pt too wide) in paragraph at lines 446--447
+Overfull \hbox (48.23523pt too wide) in paragraph at lines 527--528
 []\TU/TimesNewRoman(1)/m/n/14.4 Для кількісної оцінки на польових послідовностя
 х EuRoC (наприклад, MH_01_easy)
  []
 
-
-Overfull \hbox (5.20247pt too wide) in paragraph at lines 450--451
+[17]
+Overfull \hbox (5.20247pt too wide) in paragraph at lines 531--532
 \TU/TimesNewRoman(1)/m/n/14.4 webcam-сценарії часто активують affine-fallback; 
 затримка мережі WebSocket впли-
  []
 
-[16] [17
+[18] [19
 
 
 ]
-Overfull \hbox (9.06737pt too wide) in paragraph at lines 474--475
+Overfull \hbox (9.06737pt too wide) in paragraph at lines 555--556
 []\TU/TimesNewRoman(1)/m/n/14.4 Mur-Artal R., Montiel J., Tardós J. D. ORB-SLAM
 : a versatile and accurate monocular
  []
 
 
-Overfull \hbox (5.98544pt too wide) in paragraph at lines 476--477
+Overfull \hbox (5.98544pt too wide) in paragraph at lines 557--558
 []\TU/TimesNewRoman(1)/m/n/14.4 Klein G., Murray D. Parallel tracking and mappi
 ng for small AR workspaces. ISMAR.
  []
 
 
-Overfull \hbox (29.91954pt too wide) in paragraph at lines 478--479
+Overfull \hbox (29.91954pt too wide) in paragraph at lines 559--560
 [][][][] [] [][][][][][] [] [][][] [] [] [] [] [] [][] [] [][][] [] [][][][][][
 ][][] [] [][][][][][] [] [][][][][][][][][][][] [] [][][][]$[][]
  []
 
 
-Overfull \hbox (16.85915pt too wide) in paragraph at lines 486--487
+Overfull \hbox (16.85915pt too wide) in paragraph at lines 567--568
 []\TU/TimesNewRoman(1)/m/n/14.4 FastAPI Documentation. URL: [][]$[][][][][] [] 
 [] [] [][][][][][][] [] [][][][][][][][] [] [][][][]$[][] (дата звер-
  []
 
 
-Overfull \hbox (50.00456pt too wide) in paragraph at lines 488--489
+Overfull \hbox (50.00456pt too wide) in paragraph at lines 569--570
 []\TU/TimesNewRoman(1)/m/n/14.4 Angular Documentation. URL: [][]$[][][][][] [] 
 [] [] [][][][][][][] [] [][][][]$[][] (дата звернення: 29.05.2026). 
  []
 
-[18
+[20
 
 
 ] 
@@ -917,16 +931,26 @@ enddocument/afterlastpage (AED): lastpage setting LastPage.
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
-Package rerunfilecheck Info: File `kursova.out' has not changed.
-(rerunfilecheck)             Checksum: 5B0DE4B569840642CF69D20F587A4BF0;6975.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `kursova.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `kursova.out':
+(rerunfilecheck)             Before: 737F97A9D470B72091212653022CD2F3;6976
+(rerunfilecheck)             After:  32C5D0DF5EAC78E51ECB0B91DB3873BA;6891.
  ) 
 Here is how much of TeX's memory you used:
- 16995 strings out of 468168
- 327776 string characters out of 5432815
- 788019 words of memory out of 5000000
- 45453 multiletter control sequences out of 15000+600000
- 635781 words of font info for 127 fonts, out of 8000000 for 9000
+ 17021 strings out of 468168
+ 328781 string characters out of 5432815
+ 788778 words of memory out of 5000000
+ 45489 multiletter control sequences out of 15000+600000
+ 631056 words of font info for 99 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 73i,15n,103p,730b,666s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 73i,15n,103p,749b,666s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on kursova.pdf (19 pages).
+Output written on kursova.pdf (21 pages).
