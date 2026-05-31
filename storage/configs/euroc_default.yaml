@@ -1,0 +1,11 @@
+calibration:
+  image_height: 480
+  image_width: 752
+  note: EuRoC Machine Hall cam0; calibrate your own camera for best accuracy.
+  source: dataset
+camera:
+  cu: 367.215
+  cv: 248.375
+  fu: 458.654
+  fv: 457.296
+name: EuRoC MAV (default)
