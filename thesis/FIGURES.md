@@ -140,7 +140,7 @@ python3 scripts/generate_fig_06_calibration.py --start-index 500
 ## Рисунок 8 (опційно) — `vo-eval-V1_01_easy.png`
 
 **Де в тексті:** розділ 4, п. «Оцінювання VO» (порівняння з GT)  
-**Підпис:** «Порівняння траєкторії VO (Sim(3)-масштабованої) з ground truth EuRoC V1_01_easy»
+**Підпис:** «Порівняння Sim(3)-вирівняної траєкторії VO з ground truth EuRoC V1_01_easy (VO ≈ 24 m, GT ≈ 58,6 m, ATE ≈ 1,7 m)»
 
 **Як отримати:**
 

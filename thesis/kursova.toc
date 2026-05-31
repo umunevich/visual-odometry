@@ -23,10 +23,10 @@
 \contentsline {section}{\numberline {3.2}Модуль калібрування}{14}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Експорт траєкторії та оцінювання масштабу}{15}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Клієнтська частина та розгортання}{15}{section.3.4}%
-\contentsline {chapter}{\numberline {4}Експериментальні дослідження}{17}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Набір даних EuRoC MAV}{17}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Результати калібрування}{17}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Оцінювання VO}{18}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Обмеження експериментів}{20}{section.4.4}%
-\contentsline {chapter}{Висновки}{21}{chapter*.15}%
-\contentsline {chapter}{Перелік джерел посилання}{22}{chapter*.16}%
+\contentsline {chapter}{\numberline {4}Експериментальні дослідження}{18}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Набір даних EuRoC MAV}{18}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Результати калібрування}{18}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Оцінювання VO}{19}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Обмеження експериментів}{21}{section.4.4}%
+\contentsline {chapter}{Висновки}{22}{chapter*.17}%
+\contentsline {chapter}{Перелік джерел посилання}{23}{chapter*.18}%

@@ -90,7 +90,7 @@
     \item реалізувати модуль оцінювання руху (оптичний потік, епіполярна геометрія);
     \item реалізувати калібрування камери за шаховою дошкою;
     \item забезпечити візуалізацію траєкторії та профілі камери;
-    \item перевірити на даних EuRoC MAV (калібрування, VO, ATE за GT).
+    \item перевірити на даних EuRoC MAV (калібрування, VO, ATE за еталоном).
   \end{enumerate}
 \end{frame}
 
@@ -140,7 +140,7 @@
 
   \medskip
   \begin{itemize}
-    \item \textbf{Сервер} (Python, FastAPI, OpenCV) - VO та калібрування.
+    \item \textbf{Сервер} (Python, FastAPI, OpenCV) --- візуальна одометрія та калібрування.
     \item \textbf{Клієнт} (Angular, Plotly.js) - захоплення відео, 3D-графік.
     \item \textbf{WebSocket} - обмін кадрами (JPEG/Base64) і координатами в реальному часі.
   \end{itemize}
@@ -153,8 +153,9 @@
 
   \medskip
   {\small
-  Резервний шлях - \texttt{estimateAffinePartial2D} для плоских рухів;\;
-  згладжування - EMA + відсіювання стрибків.
+  Резервний шлях - афінна оцінка (\texttt{estimateAffinePartial2D});\;
+  масштаб: тріангуляція + оптичний потік + базова лінія ключових кадрів;\;
+  прив'язка пози до ключового кадру кожні 45~кадрів.
   }
 \end{frame}
 
@@ -211,19 +212,49 @@
 \end{frame}
 
 % --- Слайд 10 ---
+\begin{frame}{Результати VO на EuRoC \texttt{V1\_01\_easy}}
+  \small
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+    \begin{table}
+      \centering
+      \begin{tabular}{@{}lr@{}}
+        \toprule
+        Метрика & Значення \\
+        \midrule
+        Успішних кадрів & 99,9\,\% \\
+        ATE (СКП) & \textbf{1,74~м} \\
+        $s$ (Sim(3)) & 0,061 \\
+        Довжина еталону & 58,6~м \\
+        Шлях VO (масштаб.) & \textbf{24,1~м} \\
+        \bottomrule
+      \end{tabular}
+    \end{table}
+
+    \vspace{0.5em}
+    \textbf{24~м}
+    ($\approx$41\,\% довжини еталону), ATE $\approx$1,7~м.
+
+    \column{0.52\textwidth}
+    \centering
+    \maybeincludegraphics[0.98\columnwidth]{vo-eval-V1_01_easy.png}
+  \end{columns}
+\end{frame}
+
+% --- Слайд 11 ---
 \begin{frame}{Наочна демонстрація}
 
 
 \end{frame}
 
-% --- Слайд 11 ---
+% --- Слайд 12 ---
 \begin{frame}{Обмеження та перспективи}
   \begin{columns}[T,onlytextwidth]
     \column{0.48\textwidth}
     \textbf{Обмеження}
     \begin{itemize}
-      \item дрейф без замикання контуру;
-      \item умовний масштаб під час польоту (метри - лише з GT);
+      \item дрейф без замикання петлі;
+      \item умовний масштаб під час польоту (метри - лише з еталону);
       \item залежність від якості калібрування;
       \item затримка WebSocket у режимі «Потік».
     \end{itemize}
@@ -231,26 +262,26 @@
     \column{0.48\textwidth}
     \textbf{Перспективи}
     \begin{itemize}
-      \item RPE та детальні метрики (evo);
-      \item ORB-дескриптори, локальне BA;
-      \item поєднання з IMU;
-      \item loop closure.
+      \item відносна помилка траєкторії (RPE);
+      \item ORB-дескриптори, локальне пакетне уточнення;
+      \item поєднання з IMU (VIO);
+      \item замикання петлі.
     \end{itemize}
   \end{columns}
 \end{frame}
 
-% --- Слайд 12 ---
+% --- Слайд 13 ---
 \begin{frame}{Висновки}
   \begin{itemize}
     \item Реалізовано \textbf{веб-систему монокулярної VO} з клієнт-серверною архітектурою.
-    \item VO-модуль: Shi-Tomasi, Lucas-Kanade, $E$ + RANSAC, affine-fallback, згладжування.
+    \item Модуль VO: Shi-Tomasi, Lucas-Kanade, $E$ + RANSAC, афінний резерв, прив'язка до ключових кадрів.
     \item Калібрування за шаховою дошкою з автопідбором сітки та профілями YAML.
-    \item На EuRoC: похибка репроєкції \textbf{1{,}21~px}; експорт TUM, Sim(3)-масштаб $s \approx 0{,}063$, ATE RMSE $\approx 1{,}7$~м на \texttt{V1\_01\_easy}.
+    \item На EuRoC \texttt{V1\_01\_easy}: RMS \textbf{1,21~px}; $s \approx 0{,}061$; ATE $\approx 1{,}7$~м; шлях VO $\approx$24~м (еталон 58,6~м).
     \item Система придатна для \textbf{навчальної демонстрації} та прототипування локалізації БПЛА.
   \end{itemize}
 \end{frame}
 
-% --- Слайд 13 ---
+% --- Слайд 14 ---
 \begin{frame}
   \centering
   \Large

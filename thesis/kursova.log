@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.25)  31 MAY 2026 08:03
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.25)  31 MAY 2026 19:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -590,7 +590,14 @@ Package fontspec Info:
 
 
 
-(./kursova.aux)
+(./kursova.aux
+
+LaTeX Warning: Label `fig:ui' multiply defined.
+
+
+LaTeX Warning: Label `fig:ui' multiply defined.
+
+)
 \openout1 = `kursova.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 151.
@@ -796,6 +803,9 @@ File: images/fig-03-architecture.png Graphic file (type bmp)
 
 ] [12]
 Розділ 3.
+[13
+
+]
 File: images/fig-04-vo-pipeline.png Graphic file (type bmp)
 <images/fig-04-vo-pipeline.png>
 
@@ -805,15 +815,13 @@ ew(0)/m/n/14.4 tracking \TU/TimesNewRoman(1)/m/n/14.4 зі значеннями 
 New(0)/m/n/14.4 initializing\TU/TimesNewRoman(1)/m/n/14.4 ,
  []
 
-[13
-
-]
+[14]
 Underfull \hbox (badness 1331) in paragraph at lines 473--474
 []\TU/TimesNewRoman(1)/m/n/14.4 Модуль \TU/CourierNew(0)/m/n/14.4 trajectory_ev
 al.py \TU/TimesNewRoman(1)/m/n/14.4 забезпечує експорт накопиченої трає-
  []
 
-[14]
+
 Underfull \hbox (badness 5563) in paragraph at lines 475--476
 []\TU/TimesNewRoman(1)/m/n/14.4 Глобальний масштаб $\OML/cmm/m/it/14.4 s$ \TU/T
 imesNewRoman(1)/m/n/14.4 обчислюється алгоритмом Umeyama (Sim(3)-
@@ -839,30 +847,45 @@ Overfull \hbox (35.34532pt too wide) in paragraph at lines 479--480
 TimesNewRoman(1)/m/n/14.4 ).
  []
 
-[15] [16]
+File: images/fig-ui-1.png Graphic file (type bmp)
+<images/fig-ui-1.png>
+File: images/fig-ui-2.png Graphic file (type bmp)
+<images/fig-ui-2.png>
+File: images/fig-ui-3.png Graphic file (type bmp)
+<images/fig-ui-3.png>
+[15] [16] [17]
 Розділ 4.
 File: images/fig-06-calibration.png Graphic file (type bmp)
 <images/fig-06-calibration.png>
-[17
+[18
 
 ]
-Overfull \hbox (128.40155pt too wide) in paragraph at lines 541--542
+File: images/fig-07-trajectory.png Graphic file (type bmp)
+<images/fig-07-trajectory.png>
+
+Overfull \hbox (128.40155pt too wide) in paragraph at lines 555--556
 \TU/TimesNewRoman(1)/m/n/14.4 ристано еталонну траєкторію (ground truth) з файл
 у \TU/CourierNew(0)/m/n/14.4 state_groundtruth_estimate0/data.csv\TU/TimesNewRo
 man(1)/m/n/14.4 .
  []
 
 
-Overfull \hbox (16.27866pt too wide) in paragraph at lines 549--550
+Overfull \hbox (16.27866pt too wide) in paragraph at lines 563--564
 []\TU/TimesNewRoman(1)/m/n/14.4 Експеримент проведено на відео \TU/CourierNew(0
 )/m/n/14.4 V1_01_easy.mp4 \TU/TimesNewRoman(1)/m/n/14.4 (2912 кадрів, 752$\OMS/
 cmsy/m/n/14.4 ^^B$\TU/TimesNewRoman(1)/m/n/14.4 480 px,
  []
 
-[18] [19] [20] [21
+[19]
+Underfull \hbox (badness 5091) in paragraph at lines 584--585
+[]\TU/TimesNewRoman(1)/m/n/14.4 Після покращення конвеєра (комбінована оцінка м
+асштабу, keyframe
+ []
+
+[20] [21] [22
 
 
-] [22
+] [23
 
 
 ]
@@ -873,14 +896,18 @@ enddocument/afterlastpage (AED): lastpage setting LastPage.
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
+
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 17372 strings out of 468168
- 334601 string characters out of 5432815
- 790417 words of memory out of 5000000
- 45829 multiletter control sequences out of 15000+600000
- 631080 words of font info for 102 fonts, out of 8000000 for 9000
+ 17408 strings out of 468168
+ 335415 string characters out of 5432815
+ 790443 words of memory out of 5000000
+ 45863 multiletter control sequences out of 15000+600000
+ 631064 words of font info for 100 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  73i,15n,103p,749b,668s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on kursova.pdf (23 pages).
+Output written on kursova.pdf (24 pages).

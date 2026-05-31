@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.25)  31 MAY 2026 08:14
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.25)  31 MAY 2026 17:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1089,7 +1089,7 @@ File: images/fig-02-optical-flow.png Graphic file (type bmp)
 File: images/fig-03-architecture.png Graphic file (type bmp)
 <images/fig-03-architecture.png>
 
-Overfull \vbox (25.63509pt too high) detected at line 147
+Overfull \vbox (40.13509pt too high) detected at line 147
  []
 
 [6
@@ -1097,7 +1097,11 @@ Overfull \vbox (25.63509pt too high) detected at line 147
 ]
 File: images/fig-04-vo-pipeline.png Graphic file (type bmp)
 <images/fig-04-vo-pipeline.png>
- [7
+
+Overfull \vbox (3.55931pt too high) detected at line 160
+ []
+
+[7
 
 ] [8
 
@@ -1106,13 +1110,18 @@ File: images/fig-06-calibration.png Graphic file (type bmp)
 <images/fig-06-calibration.png>
  [9
 
-] [10
+]
+File: images/vo-eval-V1_01_easy.png Graphic file (type bmp)
+<images/vo-eval-V1_01_easy.png>
+ [10
 
 ] [11
 
 ] [12
 
 ] [13
+
+] [14
 
 ]
 \tf@nav=\write6
@@ -1133,12 +1142,12 @@ Package rerunfilecheck Info: File `presentation.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 24670 strings out of 468168
- 522550 string characters out of 5432815
+ 24685 strings out of 468168
+ 522991 string characters out of 5432815
  940300 words of memory out of 5000000
- 52854 multiletter control sequences out of 15000+600000
- 634722 words of font info for 121 fonts, out of 8000000 for 9000
+ 52867 multiletter control sequences out of 15000+600000
+ 634730 words of font info for 122 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  128i,11n,123p,425b,559s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on presentation.pdf (13 pages).
+Output written on presentation.pdf (14 pages).
