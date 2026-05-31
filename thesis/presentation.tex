@@ -1,0 +1,275 @@
+% !TEX program = xelatex
+% Компіляція: xelatex presentation.tex && xelatex presentation.tex
+\documentclass[aspectratio=169,12pt]{beamer}
+
+\usepackage{fontspec}
+\usefonttheme{serif}
+\setmainfont{Times New Roman}
+\newfontfamily\cyrillicfont{Times New Roman}[Script=Cyrillic]
+\newfontfamily\cyrillicfontsf{Times New Roman}[Script=Cyrillic]
+\newfontfamily\cyrillicfonttt{Courier New}[Script=Cyrillic]
+
+\usepackage{polyglossia}
+\setdefaultlanguage{ukrainian}
+
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{xurl}
+
+\graphicspath{{images/}}
+
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{%
+  \hfill\insertframenumber/\inserttotalframenumber\kern1em\vspace{2pt}%
+}
+
+\setbeamertemplate{itemize item}{\textbullet}
+\setbeamertemplate{itemize subitem}{\textendash}
+
+\IfFileExists{images/fig-05-ui.png}{%
+  \newcommand{\UiScreenshot}{fig-05-ui.png}%
+}{%
+  \newcommand{\UiScreenshot}{fig-03-architecture.png}%
+}
+
+\newcommand{\maybeincludegraphics}[2][0.88\textwidth]{%
+  \IfFileExists{images/#2}{%
+    \includegraphics[width=#1]{#2}%
+  }{%
+    \fbox{\parbox[c][4.5cm][c]{#1}{%
+      \centering\small
+      \textbf{Місце для рисунка}\\[0.5em]
+      \texttt{thesis/images/#2}%
+    }}%
+  }%
+}
+
+\title{Монокулярна візуальна одометрія\\в реальному часі для БПЛА}
+\subtitle{Курсова робота}
+\author{Уточкіна Яна Максимівна}
+\institute{%
+  КНУ імені Тараса Шевченка\\
+  Факультет комп'ютерних наук та кібернетики\\
+  Кафедра математичної інформатики\\[0.4em]
+  Науковий керівник: док. ф.-м. н. Терещенко В.~М.%
+}
+\date{2026}
+
+\begin{document}
+
+% --- Слайд 1 ---
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% --- Слайд 2 ---
+\begin{frame}{Актуальність}
+  \begin{itemize}
+    \item Автономна навігація БПЛА потребує оцінки руху без GNSS.
+    \item Бортова камера - доступне джерело інформації про зміщення та обертання.
+    \item \textbf{Візуальна одометрія (VO)} інтегрує відносний рух між кадрами в траєкторію.
+    \item Монокулярна VO - одна камера: простіша апаратура, але неоднозначність масштабу та дрейф.
+    \item Повні SLAM-системи (ORB-SLAM, PTAM) складні для навчання - потрібен доступний веб-прототип.
+  \end{itemize}
+\end{frame}
+
+% --- Слайд 3 ---
+\begin{frame}{Мета та завдання}
+  \textbf{Мета:} розробити веб-систему монокулярної VO з інтерактивною 3D-візуалізацією.
+
+  \medskip
+  \textbf{Завдання:}
+  \begin{enumerate}
+    \item проаналізувати теоретичні основи VO та калібрування;
+    \item спроєктувати клієнт-серверну архітектуру;
+    \item реалізувати модуль оцінювання руху (оптичний потік, епіполярна геометрія);
+    \item реалізувати калібрування камери за шаховою дошкою;
+    \item забезпечити візуалізацію траєкторії та профілі камери;
+    \item перевірити на даних EuRoC MAV.
+  \end{enumerate}
+\end{frame}
+
+% --- Слайд 4 ---
+\begin{frame}{Теоретична основа}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+    \textbf{Модель камери}
+    \begin{itemize}
+      \item центральна перспектива, матриця $K$;
+      \item калібрування за шаховою дошкою;
+      \item похибка репроєкції - критерій якості.
+    \end{itemize}
+
+    \medskip
+    \textbf{Оцінювання руху}
+    \begin{itemize}
+      \item Shi-Tomasi + Lucas-Kanade;
+      \item суттєва матриця $E$ + RANSAC;
+      \item \texttt{recoverPose} $\rightarrow R$, $\mathbf{t}$.
+    \end{itemize}
+
+    \column{0.48\textwidth}
+    \centering
+    \maybeincludegraphics[0.95\columnwidth]{fig-01-pinhole.png}\\[0.3em]
+    {\footnotesize Модель камери з центральною перспективою}
+  \end{columns}
+\end{frame}
+
+% --- Слайд 5 ---
+\begin{frame}{Відстеження ознак}
+  \centering
+  \maybeincludegraphics[0.72\textwidth]{fig-02-optical-flow.png}
+
+  \medskip
+  {\small
+  Зелені - ознаки на кадрі $t{-}1$;\;
+  сині - успішно відстежені;\;
+  червоні - відхилені (forward-backward перевірка).
+  }
+\end{frame}
+
+% --- Слайд 6 ---
+\begin{frame}{Архітектура системи}
+  \centering
+  \maybeincludegraphics[0.82\textwidth]{fig-03-architecture.png}
+
+  \medskip
+  \begin{itemize}
+    \item \textbf{Сервер} (Python, FastAPI, OpenCV) - VO та калібрування.
+    \item \textbf{Клієнт} (Angular, Plotly.js) - захоплення відео, 3D-графік.
+    \item \textbf{WebSocket} - обмін кадрами (JPEG/Base64) і координатами в реальному часі.
+  \end{itemize}
+\end{frame}
+
+% --- Слайд 7 ---
+\begin{frame}{Конвеєр візуальної одометрії}
+  \centering
+  \maybeincludegraphics[0.78\textwidth]{fig-04-vo-pipeline.png}
+
+  \medskip
+  {\small
+  Резервний шлях - \texttt{estimateAffinePartial2D} для плоских рухів;\;
+  згладжування - EMA + відсіювання стрибків.
+  }
+\end{frame}
+
+% --- Слайд 8 ---
+\begin{frame}{Технологічний стек}
+  \small
+  \begin{table}
+    \centering
+    \begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}p{8.8cm}@{}}
+      \toprule
+      Шар & Технології \\
+      \midrule
+      Сервер & Python 3.11, FastAPI, OpenCV, NumPy, PyYAML \\
+      Клієнт & Angular 21, TypeScript, Angular Material, Plotly.js \\
+      Транспорт & WebSocket, REST (\texttt{/api/configs/calibrate}) \\
+      Розгортання & Docker Compose (порти 8000 / 4200) \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+
+  \medskip
+  Режими: \textbf{«Потік»} (вебкамера) та \textbf{«З файлу»} (відео EuRoC).
+  Профілі камери - YAML у \texttt{vo-uav/storage/configs/}.
+\end{frame}
+
+% --- Слайд 9 ---
+\begin{frame}{Результати калібрування (EuRoC)}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.44\textwidth}
+    \small
+    \begin{table}
+      \centering
+      \begin{tabular}{@{}lr@{}}
+        \toprule
+        Параметр & Значення \\
+        \midrule
+        $f_u$ & 397{,}88~px \\
+        $f_v$ & 394{,}66~px \\
+        $c_u$ & 360{,}80~px \\
+        $c_v$ & 271{,}66~px \\
+        RMS репроєкції & \textbf{1{,}21~px} \\
+        Сітка & 6 $\times$ 7 \\
+        \bottomrule
+      \end{tabular}
+    \end{table}
+
+    \vspace{0.4em}
+    1740 з 2376 кадрів \texttt{cam\_checkerboard}  детекція дошки.
+
+    \column{0.52\textwidth}
+    \centering
+    \maybeincludegraphics[0.98\columnwidth]{fig-06-calibration.png}
+  \end{columns}
+\end{frame}
+
+% --- Слайд 10 ---
+\begin{frame}{Наочна демонстрація}
+  \small
+  \textbf{Підготовка} (до захисту):
+  \begin{itemize}
+    \item \texttt{docker compose up --build};
+    \item \url{http://localhost:4200}.
+  \end{itemize}
+
+  \textbf{На захисті} (≈1{,}5~хв):
+  \begin{enumerate}
+    \item «З файлу» → відео EuRoC → профіль Dataset → \textbf{Start VO!}
+    \item Показати 3D-траєкторію, \texttt{tracking}, \texttt{confidence}
+    \item (Опційно) «Потік» — кілька секунд з вебкамери
+  \end{enumerate}
+
+  \centering
+  \maybeincludegraphics[0.42\textwidth]{\UiScreenshot}
+\end{frame}
+
+% --- Слайд 11 ---
+\begin{frame}{Обмеження та перспективи}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+    \textbf{Обмеження}
+    \begin{itemize}
+      \item дрейф без замикання контуру;
+      \item умовний масштаб траєкторії;
+      \item залежність від якості калібрування;
+      \item затримка WebSocket у режимі «Потік».
+    \end{itemize}
+
+    \column{0.48\textwidth}
+    \textbf{Перспективи}
+    \begin{itemize}
+      \item експорт траєкторії, метрики ATE/RPE (evo);
+      \item ORB-дескриптори, локальне BA;
+      \item поєднання з IMU;
+      \item loop closure.
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+% --- Слайд 12 ---
+\begin{frame}{Висновки}
+  \begin{itemize}
+    \item Реалізовано \textbf{веб-систему монокулярної VO} з клієнт-серверною архітектурою.
+    \item VO-модуль: Shi--Tomasi, Lucas--Kanade, $E$ + RANSAC, affine-fallback, згладжування.
+    \item Калібрування за шаховою дошкою з автопідбором сітки та профілями YAML.
+    \item На EuRoC: похибка репроєкції \textbf{1{,}21~px}; підтверджено коректність VO-конвеєра.
+    \item Система придатна для \textbf{навчальної демонстрації} та прототипування локалізації БПЛА.
+  \end{itemize}
+\end{frame}
+
+% --- Слайд 13 ---
+\begin{frame}
+  \centering
+  \Large
+  \textbf{Дякую за увагу!}\\[1.2em]
+  Готова відповісти на запитання.
+\end{frame}
+
+\end{document}

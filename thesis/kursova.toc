@@ -3,7 +3,7 @@
 \contentsline {chapter}{Скорочення та умовні познаки}{4}{chapter*.3}%
 \contentsline {chapter}{Вступ}{5}{chapter*.4}%
 \contentsline {chapter}{\numberline {1}Теоретичні основи монокулярної візуальної одометрії}{7}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Пін-hole модель камери}{7}{section.1.1}%
+\contentsline {section}{\numberline {1.1}Модель камери з центральною перспективою}{7}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Калібрування камери}{7}{section.1.2}%
 \contentsline {section}{\numberline {1.3}Детекція та відстеження ознак}{9}{section.1.3}%
 \contentsline {section}{\numberline {1.4}Епіполярна геометрія та суттєва матриця}{9}{section.1.4}%
@@ -19,13 +19,13 @@
 \contentsline {section}{\numberline {3.1}Модуль візуальної одометрії}{13}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Попередня обробка}{13}{subsection.3.1.1}%
 \contentsline {subsection}{\numberline {3.1.2}Конвеєр обробки кадру}{13}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}Стани трекінгу}{14}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.3}Стани відстеження}{14}{subsection.3.1.3}%
 \contentsline {section}{\numberline {3.2}Модуль калібрування}{14}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Frontend та розгортання}{14}{section.3.3}%
+\contentsline {section}{\numberline {3.3}Клієнтська частина та розгортання}{15}{section.3.3}%
 \contentsline {chapter}{\numberline {4}Експериментальні дослідження}{16}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Набір даних EuRoC MAV}{16}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Результати калібрування}{16}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Оцінювання VO}{17}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Обмеження експериментів}{18}{section.4.4}%
+\contentsline {section}{\numberline {4.4}Обмеження експериментів}{17}{section.4.4}%
 \contentsline {chapter}{Висновки}{19}{chapter*.14}%
 \contentsline {chapter}{Перелік джерел посилання}{20}{chapter*.15}%
