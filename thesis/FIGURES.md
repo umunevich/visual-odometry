@@ -133,4 +133,22 @@ python3 scripts/generate_fig_06_calibration.py --start-index 500
 - Підписи осей: **X (Right), Y (Down), Z (Forward)** — як у системі.
 - Бажано: видно поле tracking = ok або confidence.
 
-**Порада:** прогнати коротке відео EuRoC з профілем `dataset.yaml` через From file.
+**Порада:** прогнати `V1_01_easy.mp4` з профілем `euroc_default` через From file, потім **Compute global scale**.
+
+---
+
+## Рисунок 8 (опційно) — `vo-eval-V1_01_easy.png`
+
+**Де в тексті:** розділ 4, п. «Оцінювання VO» (порівняння з GT)  
+**Підпис:** «Порівняння траєкторії VO (Sim(3)-масштабованої) з ground truth EuRoC V1_01_easy»
+
+**Як отримати:**
+
+```bash
+EUROC_DATASETS_PATH=./Datasets python3 scripts/run_vo_eval.py \
+  --video Datasets/vicon_room1/V1_01_easy.mp4 \
+  --sequence V1_01_easy \
+  --plot thesis/images/vo-eval-V1_01_easy.png
+```
+
+Ліворуч — GT (зелена) vs VO aligned (синя, X–Y); праворуч — сира VO-траєкторія в довільних одиницях.

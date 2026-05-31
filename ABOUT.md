@@ -162,6 +162,9 @@ Monocular VO recovers translation **direction** but not absolute metric scale. T
 
 A profile-level `absolute_scale` factor controls overall step size. Scale ratios are clamped per frame to limit drift bursts.
 
+**Recovering metric scale (post-hoc)**  
+During live VO, absolute meters are unknown. When a EuRoC sequence with ground truth is available, the backend can compute a global scale factor **s** via **Sim(3) alignment** (Umeyama algorithm): align the estimated trajectory to Vicon ground truth, then export a **scaled TUM** file in meters. This is exposed in the **From file** workspace (`Compute global scale`, `Export scaled TUM`) and via `POST /api/trajectory/evaluate`.
+
 ### Keyframe refresh and recovery
 
 - Every **N** frames (configurable), features are re-detected to avoid long-baseline tracking failure.  
@@ -317,8 +320,26 @@ Each sequence includes timestamped images, IMU data, and ground-truth trajectory
 
    Upload the resulting video in the frontend, select the EuRoC (or matching) camera profile, and run VO.
 
-3. **Validation reference**  
-   EuRoC ground-truth trajectories allow qualitative comparison of estimated paths (loop shape, turns, scale behavior). This project focuses on **real-time monocular VO** rather than full benchmark reporting against EuRoC metrics, but the dataset remains the primary reference for default intrinsics and test sequences.
+3. **Trajectory export and quantitative evaluation**  
+   After a **From file** session on a EuRoC video (e.g. `V1_01_easy.mp4`):
+
+   - Select the matching **EuRoC sequence (GT)** in the workspace dropdown.
+   - Click **Compute global scale** — backend interpolates ground truth at `cam0` timestamps, runs Sim(3) alignment, returns **s** and **ATE**.
+   - **Export TUM** / **Export scaled TUM** — trajectory files compatible with [evo](https://github.com/MichaelGrupp/evo).
+
+   CLI batch evaluation:
+
+   ```bash
+   EUROC_DATASETS_PATH=./Datasets python3 scripts/run_vo_eval.py \
+     --video Datasets/vicon_room1/V1_01_easy.mp4 \
+     --sequence V1_01_easy \
+     --tum-out output/V1_01_easy_scaled.txt
+   ```
+
+   Docker mounts `./Datasets` at `/datasets` with `EUROC_DATASETS_PATH=/datasets`.
+
+4. **Validation reference**  
+   EuRoC ground-truth trajectories allow both **qualitative** comparison (loop shape, turns) and **quantitative** metrics (ATE after Sim(3) alignment). Example on `V1_01_easy`: global scale **s ≈ 0.063**, ATE RMSE **≈ 1.7 m**, **94.9%** of frames in `ok` tracking state.
 
 ### Citation
 
@@ -336,7 +357,7 @@ For the latest download links, documentation, and license terms, use the officia
 |-------|----------------|
 | **Backend** | Python, FastAPI, OpenCV, NumPy, PyYAML |
 | **Frontend** | Angular 21, TypeScript, Angular Material, Plotly.js |
-| **Transport** | WebSocket (full-duplex frame streaming) |
+| **Transport** | WebSocket (full-duplex frame streaming), REST (calibration, profiles, trajectory export/evaluation) |
 | **Infrastructure** | Docker, Docker Compose, Nginx, Cloudflare Tunnel (optional) |
 
 ---
@@ -347,11 +368,26 @@ For the latest download links, documentation, and license terms, use the officia
 Coursework/
 ├── vo-uav/                 # FastAPI backend — VO, calibration, profiles
 │   ├── src/vo.py           # Visual odometry engine
+│   ├── src/trajectory_eval.py  # TUM export, Sim(3) scale, ATE vs EuRoC GT
 │   ├── src/camera_calibration.py
 │   ├── src/routers/stream.py
+│   ├── src/routers/trajectory.py
 │   └── storage/configs/    # Saved camera profiles (YAML)
+├── scripts/
+│   ├── make_video.py       # EuRoC frames → MP4
+│   └── run_vo_eval.py      # Batch VO + GT evaluation
 └── vo-frontend/            # Angular SPA — capture, calibrate, visualize
 ```
+
+### Trajectory API
+
+| Endpoint | Description |
+|----------|-------------|
+| `GET /api/trajectory/euroc-sequences` | List EuRoC sequences with GT availability |
+| `POST /api/trajectory/export-tum` | Export trajectory as TUM text (raw or scaled) |
+| `POST /api/trajectory/evaluate` | Sim(3) alignment, global scale **s**, ATE, scaled TUM |
+
+See interactive docs at http://localhost:8000/docs.
 
 ---
 

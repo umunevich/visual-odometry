@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.25)  31 MAY 2026 04:08
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.25)  31 MAY 2026 08:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1106,14 +1106,7 @@ File: images/fig-06-calibration.png Graphic file (type bmp)
 <images/fig-06-calibration.png>
  [9
 
-]
-File: images/fig-03-architecture.png Graphic file (type bmp)
-<images/fig-03-architecture.png>
-
-Overfull \vbox (8.10854pt too high) detected at line 231
- []
-
-[10
+] [10
 
 ] [11
 
@@ -1140,10 +1133,10 @@ Package rerunfilecheck Info: File `presentation.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 24671 strings out of 468168
- 522567 string characters out of 5432815
- 940299 words of memory out of 5000000
- 52855 multiletter control sequences out of 15000+600000
+ 24670 strings out of 468168
+ 522550 string characters out of 5432815
+ 940300 words of memory out of 5000000
+ 52854 multiletter control sequences out of 15000+600000
  634722 words of font info for 121 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  128i,11n,123p,425b,559s stack positions out of 10000i,1000n,20000p,200000b,200000s

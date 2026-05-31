@@ -90,7 +90,7 @@
     \item реалізувати модуль оцінювання руху (оптичний потік, епіполярна геометрія);
     \item реалізувати калібрування камери за шаховою дошкою;
     \item забезпечити візуалізацію траєкторії та профілі камери;
-    \item перевірити на даних EuRoC MAV.
+    \item перевірити на даних EuRoC MAV (калібрування, VO, ATE за GT).
   \end{enumerate}
 \end{frame}
 
@@ -212,22 +212,8 @@
 
 % --- Слайд 10 ---
 \begin{frame}{Наочна демонстрація}
-  \small
-  \textbf{Підготовка} (до захисту):
-  \begin{itemize}
-    \item \texttt{docker compose up --build};
-    \item \url{http://localhost:4200}.
-  \end{itemize}
 
-  \textbf{На захисті} (≈1{,}5~хв):
-  \begin{enumerate}
-    \item «З файлу» → відео EuRoC → профіль Dataset → \textbf{Start VO!}
-    \item Показати 3D-траєкторію, \texttt{tracking}, \texttt{confidence}
-    \item (Опційно) «Потік» — кілька секунд з вебкамери
-  \end{enumerate}
 
-  \centering
-  \maybeincludegraphics[0.42\textwidth]{\UiScreenshot}
 \end{frame}
 
 % --- Слайд 11 ---
@@ -237,7 +223,7 @@
     \textbf{Обмеження}
     \begin{itemize}
       \item дрейф без замикання контуру;
-      \item умовний масштаб траєкторії;
+      \item умовний масштаб під час польоту (метри - лише з GT);
       \item залежність від якості калібрування;
       \item затримка WebSocket у режимі «Потік».
     \end{itemize}
@@ -245,7 +231,7 @@
     \column{0.48\textwidth}
     \textbf{Перспективи}
     \begin{itemize}
-      \item експорт траєкторії, метрики ATE/RPE (evo);
+      \item RPE та детальні метрики (evo);
       \item ORB-дескриптори, локальне BA;
       \item поєднання з IMU;
       \item loop closure.
@@ -257,9 +243,9 @@
 \begin{frame}{Висновки}
   \begin{itemize}
     \item Реалізовано \textbf{веб-систему монокулярної VO} з клієнт-серверною архітектурою.
-    \item VO-модуль: Shi--Tomasi, Lucas--Kanade, $E$ + RANSAC, affine-fallback, згладжування.
+    \item VO-модуль: Shi-Tomasi, Lucas-Kanade, $E$ + RANSAC, affine-fallback, згладжування.
     \item Калібрування за шаховою дошкою з автопідбором сітки та профілями YAML.
-    \item На EuRoC: похибка репроєкції \textbf{1{,}21~px}; підтверджено коректність VO-конвеєра.
+    \item На EuRoC: похибка репроєкції \textbf{1{,}21~px}; експорт TUM, Sim(3)-масштаб $s \approx 0{,}063$, ATE RMSE $\approx 1{,}7$~м на \texttt{V1\_01\_easy}.
     \item Система придатна для \textbf{навчальної демонстрації} та прототипування локалізації БПЛА.
   \end{itemize}
 \end{frame}

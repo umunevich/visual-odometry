@@ -200,13 +200,21 @@ def main() -> int:
         fig, axes = plt.subplots(1, 2, figsize=(12, 5))
 
         axes[0].plot(gt[:, 0], gt[:, 1], "g-", label="Ground truth", linewidth=2)
-        axes[0].plot(est[:, 0], est[:, 1], "b--", label="VO (scaled)", linewidth=1.5)
+        axes[0].plot(est[:, 0], est[:, 1], "b--", label="VO (Sim3-scaled)", linewidth=1.5)
         axes[0].set_xlabel("X [m]")
         axes[0].set_ylabel("Y [m]")
-        axes[0].set_title("Top-down trajectory (X-Y)")
+        axes[0].set_title("Top-down (X–Y), meters after Sim(3) alignment")
         axes[0].legend()
         axes[0].axis("equal")
         axes[0].grid(True, alpha=0.3)
+
+        s = metrics["global_scale"]
+        fig.suptitle(
+            f"{args.sequence} — profile: {run['profile_name']}\n"
+            f"Global scale s = {s:.4f} | GT path {metrics['gt_path_length_m']:.1f} m | "
+            f"VO scaled {metrics['est_path_length_scaled_m']:.1f} m",
+            fontsize=11,
+        )
 
         axes[1].plot(raw[:, 0], raw[:, 2], "r-", label="VO raw")
         axes[1].set_xlabel("X [VO units]")
@@ -215,7 +223,6 @@ def main() -> int:
         axes[1].legend()
         axes[1].grid(True, alpha=0.3)
 
-        fig.suptitle(f"{args.sequence} — profile: {run['profile_name']}", fontsize=12)
         fig.tight_layout()
         args.plot.parent.mkdir(parents=True, exist_ok=True)
         fig.savefig(args.plot, dpi=150)

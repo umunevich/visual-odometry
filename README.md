@@ -82,7 +82,7 @@ Frontend runs at http://localhost:4200 and expects the backend at `localhost:800
 
 2. **Stream mode** — Select a webcam and calibration profile → **Start VO!** → live 3D trajectory.
 
-3. **From file mode** — Upload a video (e.g. EuRoC sequence converted with `scripts/make_video.py`) → select profile → **Start VO!**.
+3. **From file mode** — Upload a video (e.g. EuRoC `V1_01_easy.mp4`) → select profile → **Start VO!** → optionally **Compute global scale** against EuRoC ground truth and **Export TUM**.
 
 Default profile **EuRoC MAV (default)** uses intrinsics from the [EuRoC dataset](./ABOUT.md#euroc-mav-dataset); calibrate your own camera for best results with a webcam.
 
@@ -96,7 +96,8 @@ Coursework/
 ├── ABOUT.md               # Pipeline, algorithm, calibration, dataset
 ├── docker-compose.yml
 ├── scripts/
-│   └── make_video.py      # Convert image folders to MP4 for testing
+│   ├── make_video.py      # Convert image folders to MP4 for testing
+│   └── run_vo_eval.py     # Batch VO run + EuRoC GT evaluation (TUM, ATE, scale)
 ├── vo-uav/                # FastAPI backend (VO + calibration)
 └── vo-frontend/           # Angular SPA
 ```
@@ -108,6 +109,11 @@ Coursework/
 ```bash
 # Convert EuRoC (or other) frame folders to video
 python scripts/make_video.py -i path/to/frames/ -o output.mp4
+
+# Run VO on video and evaluate vs EuRoC ground truth (TUM export, global scale s, ATE)
+EUROC_DATASETS_PATH=./Datasets python3 scripts/run_vo_eval.py \
+  --video Datasets/vicon_room1/V1_01_easy.mp4 \
+  --sequence V1_01_easy
 
 # Frontend lint / tests
 cd vo-frontend && npm run lint && npm test
