@@ -3,3 +3,5 @@ metodichka_po_diplomnim_robotam_2025_v2.pdf
 Datasets/*
 .DS_Store
 .env
+demo.mov
+scripts/concatenate_video.py
