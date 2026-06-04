@@ -14,6 +14,7 @@
 
 \usepackage{graphicx}
 \usepackage{array}
+\setlength{\arrayrulewidth}{0.4pt}
 \usepackage{booktabs}
 \usepackage{amsmath}
 \usepackage{hyperref}
@@ -79,8 +80,24 @@
 \end{frame}
 
 % --- Слайд 3 ---
+\begin{frame}{Постановка задачі}
+  \textbf{Проблема:} без GNSS БПЛА потребує оцінки траєкторії за бортовим відео однієї камери.
+
+  \medskip
+  \textbf{Задача:} побудувати прототип, який з відео польоту MAV формує 3D-шлях і дозволяє порівняти його з еталоном.
+
+  \medskip
+  \textbf{Критерії успіху:}
+  \begin{itemize}
+    \item стабільне відстеження на записі EuRoC (\texttt{V1\_01\_easy});
+    \item ATE після Sim(3) порядку метра;
+    \item візуалізація та експорт траєкторії для аналізу польоту.
+  \end{itemize}
+\end{frame}
+
+% --- Слайд 4 ---
 \begin{frame}{Мета та завдання}
-  \textbf{Мета:} розробити веб-систему монокулярної VO з інтерактивною 3D-візуалізацією.
+  \textbf{Мета:} розробити веб-систему монокулярної VO для попередньої оцінки траєкторії БПЛА з інтерактивною 3D-візуалізацією.
 
   \medskip
   \textbf{Завдання:}
@@ -136,20 +153,20 @@
 % --- Слайд 6 ---
 \begin{frame}{Архітектура системи}
   \centering
-  \maybeincludegraphics[0.82\textwidth]{fig-03-architecture.png}
+  \maybeincludegraphics[0.65\textwidth]{fig-03-architecture.png}
 
   \medskip
   \begin{itemize}
-    \item \textbf{Сервер} (Python, FastAPI, OpenCV) --- візуальна одометрія та калібрування.
-    \item \textbf{Клієнт} (Angular, Plotly.js) - захоплення відео, 3D-графік.
-    \item \textbf{WebSocket} - обмін кадрами (JPEG/Base64) і координатами в реальному часі.
+    \item \textbf{Сервер} - VO та калібрування бортової камери (імітація бортового модуля).
+    \item \textbf{Клієнт} - прийом відео польоту MAV, 3D-графік для оператора.
+    \item \textbf{WebSocket} - кадри (JPEG/Base64) і координати в реальному часі.
   \end{itemize}
 \end{frame}
 
 % --- Слайд 7 ---
 \begin{frame}{Конвеєр візуальної одометрії}
   \centering
-  \maybeincludegraphics[0.78\textwidth]{fig-04-vo-pipeline.png}
+  \maybeincludegraphics[0.68\textwidth]{fig-04-vo-pipeline.png}
 
   \medskip
   {\small
@@ -164,20 +181,23 @@
   \small
   \begin{table}
     \centering
-    \begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}p{8.8cm}@{}}
-      \toprule
+    \begin{tabular}{|>{\raggedright\arraybackslash}p{2.4cm}|>{\raggedright\arraybackslash}p{8.8cm}|}
+      \hline
       Шар & Технології \\
-      \midrule
+      \hline
       Сервер & Python 3.11, FastAPI, OpenCV, NumPy, PyYAML \\
+      \hline
       Клієнт & Angular 21, TypeScript, Angular Material, Plotly.js \\
+      \hline
       Транспорт & WebSocket, REST (\texttt{/api/configs/calibrate}) \\
+      \hline
       Розгортання & Docker Compose (порти 8000 / 4200) \\
-      \bottomrule
+      \hline
     \end{tabular}
   \end{table}
 
   \medskip
-  Режими: \textbf{«Потік»} (вебкамера) та \textbf{«З файлу»} (відео EuRoC).
+  Режими: \textbf{«Потік»} (імітація онлайн) та \textbf{«З файлу»} (запис польоту EuRoC MAV).
   Профілі камери - YAML у \texttt{vo-uav/storage/configs/}.
 \end{frame}
 
@@ -188,17 +208,22 @@
     \small
     \begin{table}
       \centering
-      \begin{tabular}{@{}lr@{}}
-        \toprule
+      \begin{tabular}{|l|r|}
+        \hline
         Параметр & Значення \\
-        \midrule
+        \hline
         $f_u$ & 397{,}88~px \\
+        \hline
         $f_v$ & 394{,}66~px \\
+        \hline
         $c_u$ & 360{,}80~px \\
+        \hline
         $c_v$ & 271{,}66~px \\
+        \hline
         RMS репроєкції & \textbf{1{,}21~px} \\
+        \hline
         Сітка & 6 $\times$ 7 \\
-        \bottomrule
+        \hline
       \end{tabular}
     \end{table}
 
@@ -218,32 +243,34 @@
     \column{0.48\textwidth}
     \begin{table}
       \centering
-      \begin{tabular}{@{}lr@{}}
-        \toprule
+      \begin{tabular}{|l|r|}
+        \hline
         Метрика & Значення \\
-        \midrule
+        \hline
         Успішних кадрів & 99,9\,\% \\
-        ATE (СКП) & \textbf{1,74~м} \\
-        $s$ (Sim(3)) & 0,061 \\
+        \hline
+        ATE (СКП) & \textbf{1,68~м} \\
+        \hline
+        $s$ (\text{Sim(3)}) & 0,039 \\
+        \hline
         Довжина еталону & 58,6~м \\
-        Шлях VO (масштаб.) & \textbf{24,1~м} \\
-        \bottomrule
+        \hline
+        Шлях VO (масштаб.) & \textbf{26,2~м} \\
+        \hline
       \end{tabular}
     \end{table}
 
     \vspace{0.5em}
-    \textbf{24~м}
-    ($\approx$41\,\% довжини еталону), ATE $\approx$1,7~м.
+    Для БПЛА: локальна точність $\approx$1,68~м на шляху $\sim$59~м; довжина VO ~45\,\% еталону (обмеження монокуляра).
 
     \column{0.52\textwidth}
     \centering
-    \maybeincludegraphics[0.98\columnwidth]{vo-eval-V1_01_easy.png}
+    \maybeincludegraphics[0.98\columnwidth]{fig-07-trajectory.png}
   \end{columns}
 \end{frame}
 
-% --- Слайд 11 ---
+% --- Слайд 12 ---
 \begin{frame}{Наочна демонстрація}
-
 
 \end{frame}
 
@@ -273,11 +300,11 @@
 % --- Слайд 13 ---
 \begin{frame}{Висновки}
   \begin{itemize}
-    \item Реалізовано \textbf{веб-систему монокулярної VO} з клієнт-серверною архітектурою.
-    \item Модуль VO: Shi-Tomasi, Lucas-Kanade, $E$ + RANSAC, афінний резерв, прив'язка до ключових кадрів.
-    \item Калібрування за шаховою дошкою з автопідбором сітки та профілями YAML.
-    \item На EuRoC \texttt{V1\_01\_easy}: RMS \textbf{1,21~px}; $s \approx 0{,}061$; ATE $\approx 1{,}7$~м; шлях VO $\approx$24~м (еталон 58,6~м).
-    \item Система придатна для \textbf{навчальної демонстрації} та прототипування локалізації БПЛА.
+    \item Сформульовано задачу \textbf{попередньої оцінки траєкторії БПЛА} за бортовим відео.
+    \item Реалізовано веб-прототип: VO, калібрування, порівняння з еталоном EuRoC MAV.
+    \item На польоті \texttt{V1\_01\_easy}: ATE \textbf{$\approx$1,68~м}, 99,9\,\% успішних кадрів - критерії з постановки виконано.
+    \item Обмеження: метричний масштаб у польоті без IMU; довжина шляху $\approx$41\,\% еталону.
+    \item Придатно для навчання та попередньої перевірки бортової локалізації MAV.
   \end{itemize}
 \end{frame}
 

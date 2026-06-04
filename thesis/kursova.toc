@@ -1,37 +1,39 @@
 \xpg@aux {}{ukrainian}
-\contentsline {chapter}{Реферат}{1}{chapter*.1}%
-\contentsline {chapter}{Скорочення та умовні познаки}{4}{chapter*.3}%
-\contentsline {chapter}{Вступ}{5}{chapter*.4}%
-\contentsline {chapter}{\numberline {1}Теоретичні основи монокулярної візуальної одометрії}{7}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Модель камери з центральною перспективою}{7}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Калібрування камери}{7}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Постановка задачі та класифікація підходів}{9}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Детекція та відстеження ознак}{10}{section.1.4}%
-\contentsline {section}{\numberline {1.5}Епіполярна геометрія та суттєва матриця}{11}{section.1.5}%
-\contentsline {section}{\numberline {1.6}Неоднозначність масштабу в монокулярній VO}{11}{section.1.6}%
-\contentsline {section}{\numberline {1.7}Зв'язок візуальної одометрії та SLAM}{11}{section.1.7}%
-\contentsline {section}{\numberline {1.8}Огляд систем PTAM та ORB-SLAM}{12}{section.1.8}%
-\contentsline {subsection}{\numberline {1.8.1}Parallel Tracking and Mapping (PTAM)}{12}{subsection.1.8.1}%
-\contentsline {subsection}{\numberline {1.8.2}ORB-SLAM}{13}{subsection.1.8.2}%
-\contentsline {subsection}{\numberline {1.8.3}Порівняння з розробленою системою}{13}{subsection.1.8.3}%
-\contentsline {chapter}{\numberline {2}Проєктування системи}{15}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Загальна архітектура}{15}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Режими роботи}{15}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Протокол обміну даними}{16}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Зберігання конфігурації}{16}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Стек технологій}{16}{section.2.5}%
-\contentsline {chapter}{\numberline {3}Реалізація програмного комплексу}{17}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Модуль візуальної одометрії}{17}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Попередня обробка}{17}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Конвеєр обробки кадру}{17}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}Стани відстеження}{18}{subsection.3.1.3}%
-\contentsline {section}{\numberline {3.2}Модуль калібрування}{19}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Експорт траєкторії та оцінювання масштабу}{19}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Клієнтська частина та розгортання}{19}{section.3.4}%
-\contentsline {chapter}{\numberline {4}Експериментальні дослідження}{22}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Набір даних EuRoC MAV}{22}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Результати калібрування}{22}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Оцінювання VO}{23}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Обмеження експериментів}{25}{section.4.4}%
-\contentsline {chapter}{Висновки}{26}{chapter*.17}%
-\contentsline {chapter}{Перелік джерел посилання}{27}{chapter*.18}%
+\contentsline {chapter}{Реферат}{2}{chapter*.1}%
+\contentsline {chapter}{Скорочення та умовні познаки}{5}{chapter*.3}%
+\contentsline {chapter}{Вступ}{6}{chapter*.4}%
+\contentsline {chapter}{\numberline {1}Теоретичні основи монокулярної візуальної одометрії}{9}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Модель камери з центральною перспективою}{9}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Калібрування камери}{9}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Монокулярна VO на бортових MAV}{11}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Постановка задачі та класифікація підходів}{11}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Детекція та відстеження ознак}{12}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Епіполярна геометрія та суттєва матриця}{13}{section.1.6}%
+\contentsline {section}{\numberline {1.7}Неоднозначність масштабу в монокулярній VO}{13}{section.1.7}%
+\contentsline {section}{\numberline {1.8}Зв'язок візуальної одометрії та SLAM}{14}{section.1.8}%
+\contentsline {section}{\numberline {1.9}Огляд систем PTAM та ORB-SLAM}{15}{section.1.9}%
+\contentsline {subsection}{\numberline {1.9.1}Parallel Tracking and Mapping (PTAM)}{15}{subsection.1.9.1}%
+\contentsline {subsection}{\numberline {1.9.2}ORB-SLAM}{15}{subsection.1.9.2}%
+\contentsline {subsection}{\numberline {1.9.3}Порівняння з розробленою системою}{16}{subsection.1.9.3}%
+\contentsline {chapter}{\numberline {2}Проєктування системи}{17}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Загальна архітектура}{17}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Режими роботи}{17}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Протокол обміну даними}{18}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Зберігання конфігурації}{18}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Стек технологій}{18}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Реалізація програмного комплексу}{19}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Модуль візуальної одометрії}{19}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Попередня обробка}{19}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Конвеєр обробки кадру}{20}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Стани відстеження}{21}{subsection.3.1.3}%
+\contentsline {section}{\numberline {3.2}Модуль калібрування}{21}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Експорт траєкторії та оцінювання масштабу}{21}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Клієнтська частина та розгортання}{22}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Експериментальні дослідження}{24}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Набір даних EuRoC MAV}{24}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Результати калібрування}{24}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Оцінювання VO}{25}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Оцінка вирішення поставленої задачі}{26}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Обмеження експериментів}{27}{section.4.5}%
+\contentsline {chapter}{Висновки}{28}{chapter*.18}%
+\contentsline {chapter}{Перелік джерел посилання}{29}{chapter*.19}%
